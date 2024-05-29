@@ -20,6 +20,7 @@ export default function HomeScreen() {
         <FlatList
           keyExtractor={(item, index) => item.id.toString()}
           data={pokemonList}
+          // data={[]}
           renderItem={({ item }) => {
             return (
               <View key={item.id} style={styles.card}>
@@ -30,6 +31,11 @@ export default function HomeScreen() {
           }}
           // horizontal={true}
           ItemSeparatorComponent={ItemSeparator}
+          ListEmptyComponent={
+            <View style={styles.emptyContainer}>
+              <Text style={styles.emptyContainerText}>No Items Found</Text>
+            </View>
+          }
         />
       </View>
 
@@ -65,6 +71,15 @@ const styles = StyleSheet.create({
   },
   cardText: {
     fontSize: 30,
+    fontWeight: "bold",
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  emptyContainerText: {
+    fontSize: 24,
     fontWeight: "bold",
   },
 });
