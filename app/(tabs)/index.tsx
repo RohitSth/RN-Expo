@@ -10,19 +10,11 @@ import {
 } from "react-native";
 import pokemonList from "@/data.json";
 
+const ItemSeparator = () => <View style={{ height: 16 }} />;
+
 export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      {/* <ScrollView style={styles.scrollView}>
-        {pokemonList.map((pokemon) => {
-          return (
-            <View key={pokemon.id} style={styles.card}>
-              <Text style={styles.cardText}>{pokemon.name}</Text>
-              <Text>{pokemon.type}</Text>
-            </View>
-          );
-        })}
-      </ScrollView> */}
       {/* Recommended Way */}
       <View style={styles.scrollView}>
         <FlatList
@@ -37,8 +29,20 @@ export default function HomeScreen() {
             );
           }}
           // horizontal={true}
+          ItemSeparatorComponent={ItemSeparator}
         />
       </View>
+
+      {/* <ScrollView style={styles.scrollView}>
+        {pokemonList.map((pokemon) => {
+          return (
+            <View key={pokemon.id} style={styles.card}>
+              <Text style={styles.cardText}>{pokemon.name}</Text>
+              <Text>{pokemon.type}</Text>
+            </View>
+          );
+        })}
+      </ScrollView> */}
     </SafeAreaView>
   );
 }
@@ -57,7 +61,7 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 8,
     borderWidth: 1,
-    marginBottom: 16,
+    // marginBottom: 16,
   },
   cardText: {
     fontSize: 30,
