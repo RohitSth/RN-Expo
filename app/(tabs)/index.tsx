@@ -36,6 +36,12 @@ export default function HomeScreen() {
               <Text style={styles.emptyContainerText}>No Items Found</Text>
             </View>
           }
+          ListHeaderComponent={
+            <Text style={styles.headerText}>Pokemon List</Text>
+          }
+          ListFooterComponent={
+            <Text style={styles.footerText}>End of List</Text>
+          }
         />
       </View>
 
@@ -81,5 +87,17 @@ const styles = StyleSheet.create({
   emptyContainerText: {
     fontSize: 24,
     fontWeight: "bold",
+  },
+  headerText: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 16,
+    textAlign: "center",
+  },
+  footerText: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginTop: 16,
+    textAlign: "center",
   },
 });
